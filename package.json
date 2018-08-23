@@ -4,7 +4,7 @@
 	"description": "Converts ng scaffold blueprints spaces to tabs",
 	"main": "main.js",
 	"bin": {
-		"ng-tabber": "bin/ngtabber.js"
+		"ng-tabber": "bin/ng-tabber.js"
 	},
 	"scripts": {
 		"start": "node main.js"
