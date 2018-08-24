@@ -15,3 +15,10 @@ ng-tabber
 ```
 
 You can optionally pass the path to your global `node_modules` folder as the first argument
+
+## Uninstall
+
+```
+npm uninstall -g @angular/cli ng-tabber
+npm i -g @angular/cli
+```
