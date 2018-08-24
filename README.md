@@ -8,6 +8,17 @@ Converts ng scaffold blueprints spaces to tabs
 npm i -g StatelessStudio/ng-tabber
 ```
 
-To run it again, run the command `ng-tabber`
+## Run
 
-**Note - If you receive error messages, you can pass the path to your global `node_modules` folder as the first argument**
+```
+ng-tabber
+```
+
+You can optionally pass the path to your global `node_modules` folder as the first argument
+
+## Uninstall
+
+```
+npm uninstall -g @angular/cli ng-tabber
+npm i -g @angular/cli
+```
