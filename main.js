@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 
 // Find user's home directory (this is where Angular lives)
 const home =
@@ -23,7 +24,8 @@ function convertFile(filename) {
 	// Load the file
 	fs.readFile(filename, 'utf8', (error, data) => {
 		if (error) {
-			console.log('Cannot read file', filename);
+			console.log(chalk.red('ERROR'), filename);
+			console.log(chalk.red('Cannot read file.'));
 		}
 
 		// Format the file
@@ -34,10 +36,19 @@ function convertFile(filename) {
 			data = data.replace(/"spaces"/g, '"tabs"');
 		}
 
+		// .editorconfig
+		if (filename.toLowerCase().includes('__dot__editorconfig')) {
+			data = data.replace(/=[\w\W]space/g, '= tab');
+		}
+
 		// Save the file
 		fs.writeFile(filename, data, (error) => {
 			if (error) {
-				console.log('Cannot save file', filename);
+				console.log(chalk.red('ERROR'), filename);
+				console.log(chalk.red('Cannot save file.'));
+			}
+			else {
+				console.log(chalk.green('SUCCESS'), filename);
 			}
 		});
 	});
@@ -49,8 +60,9 @@ function convertFile(filename) {
 function traverse(path) {
 	fs.readdir(path, (error, files) => {
 		if (error) {
-			console.log('Cannot traverse path', path);
-			console.log('Error', error);
+			console.log(chalk.red('ERROR'), path);
+			console.log(chalk.red('Cannot traverse path.'));
+			console.log(chalk.red(error));
 
 			return;
 		}

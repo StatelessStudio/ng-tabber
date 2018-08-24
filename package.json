@@ -1,6 +1,6 @@
 {
 	"name": "ng-tabber",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Converts ng scaffold blueprints spaces to tabs",
 	"main": "main.js",
 	"bin": {
@@ -19,5 +19,8 @@
 	"bugs": {
 		"url": "https://github.com/StatelessStudio/ng-tabber/issues"
 	},
-	"homepage": "https://github.com/StatelessStudio/ng-tabber#readme"
+	"homepage": "https://github.com/StatelessStudio/ng-tabber#readme",
+	"dependencies": {
+		"chalk": "^2.4.1"
+	}
 }
