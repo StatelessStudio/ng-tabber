@@ -20,8 +20,6 @@ const path =
  * Convert the file in-place
  */
 function convertFile(filename) {
-	console.log(filename);
-
 	// Load the file
 	fs.readFile(filename, 'utf8', (error, data) => {
 		if (error) {
@@ -32,8 +30,8 @@ function convertFile(filename) {
 		data = data.replace(/[ ]{2}/g, '\t');
 
 		// tslint.json
-		if (filename.indexOf('tslint.json') !== false) {
-			data = data.replace(/[spaces]/g, 'tabs');
+		if (filename.toLowerCase().includes('tslint.json')) {
+			data = data.replace(/"spaces"/g, '"tabs"');
 		}
 
 		// Save the file
