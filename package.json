@@ -1,13 +1,14 @@
 {
 	"name": "ng-tabber",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Converts ng scaffold blueprints spaces to tabs",
 	"main": "main.js",
 	"bin": {
 		"ng-tabber": "bin/ng-tabber.js"
 	},
 	"scripts": {
-		"start": "node main.js"
+		"start": "node main.js",
+		"postinstall": "npm start"
 	},
 	"repository": {
 		"type": "git",

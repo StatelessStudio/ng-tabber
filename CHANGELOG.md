@@ -1,5 +1,13 @@
 # ng-tabber
 
+## [0.2.0] - Aug-23-2018 - Scripts Update
+
+Run on installation
+
+### Additions
+
+-   Added post-install run script
+
 ## [0.1.0] - Aug-23-2018 - Output Update
 
 Added console output, as well as added support for `.editorconfig`
