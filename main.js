@@ -14,7 +14,7 @@ const schematicDirectory = '/@angular/cli/node_modules/@schematics/angular';
 // Check if the user passed an Angular directory as a cli argument
 const path =
 	process.argv.length > 2
-		? process.argv[2] + schematicDirectory
+		? process.argv[2]
 		: home + '/npm/node_modules' + schematicDirectory;
 
 /**
