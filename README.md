@@ -5,7 +5,7 @@ Converts ng scaffold blueprints spaces to tabs
 ## Install
 
 ```
-npm i -g @StatelessStudio/ng-tabber
+npm i -g StatelessStudio/ng-tabber
 ```
 
 ## Run
