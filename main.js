@@ -34,6 +34,11 @@ function convertFile(filename) {
 			data = data.replace(/"spaces"/g, '"tabs"');
 		}
 
+		// .editorconfig
+		if (filename.toLowerCase().includes('__dot__editorconfig')) {
+			data = data.replace(/=[\w\W]space/g, '= tab');
+		}
+
 		// Save the file
 		fs.writeFile(filename, data, (error) => {
 			if (error) {
