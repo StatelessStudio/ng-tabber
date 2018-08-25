@@ -1,5 +1,13 @@
 # ng-tabber
 
+## [0.2.2] - Aug-24-2018 - Indentation
+
+Update indentation width in `tslint.json` to levarage tslint
+
+### Fixes
+
+- Change indentation width to 2 in `tslint.json`
+
 ## [0.2.1] - Aug-24-2018 - Local-Use
 
 Cli now is usable on current working directory

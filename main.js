@@ -33,7 +33,7 @@ function convertFile(filename) {
 
 		// tslint.json
 		if (filename.toLowerCase().includes('tslint.json')) {
-			data = data.replace(/"spaces"/g, '"tabs"');
+			data = data.replace(/"spaces"/g, '"tabs", 2');
 		}
 
 		// .editorconfig
