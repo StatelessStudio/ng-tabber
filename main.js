@@ -68,7 +68,7 @@ function traverse(path) {
 		}
 
 		files.forEach((file) => {
-			if (file === '.' || file === '..') {
+			if (file.includes('node_modules') || file.indexOf('.') == 0) {
 				return;
 			}
 
