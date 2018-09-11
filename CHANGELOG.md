@@ -1,5 +1,13 @@
 # ng-tabber
 
+## [0.2.3] - Aug-24-2018 - Indentation
+
+Skip node_modules & UNIX hidden folders & files
+
+### Fixes
+
+- Skip node_modules & UNIX hidden folders
+
 ## [0.2.2] - Aug-24-2018 - Indentation
 
 Update indentation width in `tslint.json` to levarage tslint
