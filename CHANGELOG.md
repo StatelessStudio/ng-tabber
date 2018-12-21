@@ -1,5 +1,11 @@
 # ng-tabber
 
+## [0.2.6] - Dec-21-2018
+
+### Fixes
+- Created filename whitelist
+- Added schema.json to ignores
+
 ## [0.2.5] - Dec-21-2018 - Bugfixes
 
 ### Fixes
