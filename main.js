@@ -37,7 +37,10 @@ function convertFile(filename) {
 			return;
 		}
 
-		if (filename.includes('ng-package.json')) {
+		if (
+			filename.includes('ng-package.json') ||
+			filename.includes('schema.json')
+		) {
 			console.log(chalk.yellow('SKIPPING\t'), filename);
 
 			return;
