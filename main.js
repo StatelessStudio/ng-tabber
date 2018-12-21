@@ -26,6 +26,14 @@ function convertFile(filename) {
 		if (error) {
 			console.log(chalk.red('ERROR'), filename);
 			console.log(chalk.red('Cannot read file.'));
+
+			return;
+		}
+
+		if (!data) {
+			console.log(chalk.yellow('EMPTY'), filename);
+
+			return;
 		}
 
 		// Format the file
