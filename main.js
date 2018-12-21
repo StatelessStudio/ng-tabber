@@ -24,48 +24,66 @@ const installPath =
 function convertFile(filename) {
 	// Load the file
 	fs.readFile(filename, 'utf8', (error, data) => {
-		if (error) {
-			console.log(chalk.red('ERROR\t\t'), filename);
-			console.log(chalk.red('Cannot read file.'));
-
-			return;
-		}
-
-		if (!data) {
-			console.log(chalk.yellow('EMPTY\t\t'), filename);
-
-			return;
-		}
-
-		if (filename.includes('ng-package.json')) {
-			console.log(chalk.yellow('SKIPPING\t'), filename);
-
-			return;
-		}
-
-		// Format the file
-		data = data.replace(/[ ]{2}/g, '\t');
-
-		// tslint.json
-		if (filename.toLowerCase().includes('tslint.json')) {
-			data = data.replace(/"spaces"/g, '"tabs", 2');
-		}
-
-		// .editorconfig
-		if (filename.toLowerCase().includes('__dot__editorconfig')) {
-			data = data.replace(/=[\w\W]space/g, '= tab');
-		}
-
-		// Save the file
-		fs.writeFile(filename, data, (error) => {
+		if (
+			filename.includes('.json') || // Whitelist JSON
+			filename.includes('.ts') || // Whitelist Typescript
+			filename.includes('.html') || // Whitelist HTML
+			filename.includes('.css') || // Whitelist CSS
+			filename.includes('.scss') || // Whitelist SCSS
+			filename.includes('__dot__editorconfig') || // Whitelist .editorconfig schematic
+			filename.includes('.editorconfig') || // Whitelist project .editorconfig
+			filename.includes('protractor.conf.js') || // Whitelist protractor config
+			filename.includes('karma.conf.js') // Whitelist karma config
+		) {
 			if (error) {
 				console.log(chalk.red('ERROR\t\t'), filename);
-				console.log(chalk.red('Cannot save file.'));
+				console.log(chalk.red('Cannot read file.'));
+
+				return;
 			}
-			else {
-				console.log(chalk.green('SUCCESS\t\t'), filename);
+
+			if (!data) {
+				console.log(chalk.yellow('EMPTY\t\t'), filename);
+
+				return;
 			}
-		});
+
+			if (
+				filename.includes('ng-package.json') || // Blacklist ng-package.json
+				filename.includes('schema.json') // Blacklist schema.json
+			) {
+				console.log(chalk.yellow('SKIPPING\t'), filename);
+
+				return;
+			}
+
+			// Format the file
+			data = data.replace(/[ ]{2}/g, '\t');
+
+			// tslint.json
+			if (filename.toLowerCase().includes('tslint.json')) {
+				data = data.replace(/"spaces"/g, '"tabs", 2');
+			}
+
+			// .editorconfig
+			if (
+				filename.toLowerCase().includes('__dot__editorconfig') ||
+				filename.toLowerCase().includes('.editorconfig')
+			) {
+				data = data.replace(/=[\w\W]space/g, '= tab');
+			}
+
+			// Save the file
+			fs.writeFile(filename, data, (error) => {
+				if (error) {
+					console.log(chalk.red('ERROR\t\t'), filename);
+					console.log(chalk.red('Cannot save file.'));
+				}
+				else {
+					console.log(chalk.green('SUCCESS\t\t'), filename);
+				}
+			});
+		}
 	});
 }
 
