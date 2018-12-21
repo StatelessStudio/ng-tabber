@@ -1,5 +1,12 @@
 # ng-tabber
 
+## [0.2.5] - Dec-21-2018 - Bugfixes
+
+### Fixes
+- Tabulated output
+- Skip file ng-package.json
+- Log skip paths
+
 ## [0.2.4] - Dec-21-2018 - Angular 7
 
 Fixed for Angular 7

@@ -25,14 +25,20 @@ function convertFile(filename) {
 	// Load the file
 	fs.readFile(filename, 'utf8', (error, data) => {
 		if (error) {
-			console.log(chalk.red('ERROR'), filename);
+			console.log(chalk.red('ERROR\t\t'), filename);
 			console.log(chalk.red('Cannot read file.'));
 
 			return;
 		}
 
 		if (!data) {
-			console.log(chalk.yellow('EMPTY'), filename);
+			console.log(chalk.yellow('EMPTY\t\t'), filename);
+
+			return;
+		}
+
+		if (filename.includes('ng-package.json')) {
+			console.log(chalk.yellow('SKIPPING\t'), filename);
 
 			return;
 		}
@@ -53,11 +59,11 @@ function convertFile(filename) {
 		// Save the file
 		fs.writeFile(filename, data, (error) => {
 			if (error) {
-				console.log(chalk.red('ERROR'), filename);
+				console.log(chalk.red('ERROR\t\t'), filename);
 				console.log(chalk.red('Cannot save file.'));
 			}
 			else {
-				console.log(chalk.green('SUCCESS'), filename);
+				console.log(chalk.green('SUCCESS\t\t'), filename);
 			}
 		});
 	});
@@ -69,7 +75,7 @@ function convertFile(filename) {
 function traverse(installPath) {
 	fs.readdir(installPath, (error, files) => {
 		if (error) {
-			console.log(chalk.red('ERROR'), installPath);
+			console.log(chalk.red('ERROR\t\t'), installPath);
 			console.log(chalk.red('Cannot traverse installPath.'));
 			console.log(chalk.red(error));
 
@@ -83,6 +89,8 @@ function traverse(installPath) {
 				filename.includes('node_modules') ||
 				filename.indexOf('.') == 0
 			) {
+				console.log(chalk.yellow('SKIPPING\t'), file);
+
 				return;
 			}
 
