@@ -1,5 +1,14 @@
 # ng-tabber
 
+## [0.2.4] - Dec-21-2018 - Angular 7
+
+Fixed for Angular 7
+
+### Fixes
+
+- Skip file/folder should check by file basename instead of path
+- Skip empty files
+
 ## [0.2.3] - Aug-24-2018 - Indentation
 
 Skip node_modules & UNIX hidden folders & files
