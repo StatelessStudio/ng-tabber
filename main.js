@@ -37,6 +37,12 @@ function convertFile(filename) {
 			return;
 		}
 
+		if (filename.includes('ng-package.json')) {
+			console.log(chalk.yellow('SKIPPING\t'), filename);
+
+			return;
+		}
+
 		// Format the file
 		data = data.replace(/[ ]{2}/g, '\t');
 
