@@ -89,6 +89,8 @@ function traverse(installPath) {
 				filename.includes('node_modules') ||
 				filename.indexOf('.') == 0
 			) {
+				console.log(chalk.yellow('SKIPPING\t'), file);
+
 				return;
 			}
 
