@@ -22,6 +22,7 @@
 	},
 	"homepage": "https://github.com/StatelessStudio/ng-tabber#readme",
 	"dependencies": {
+		"@types/node": "^10.12.18",
 		"chalk": "^2.4.1"
 	}
 }
