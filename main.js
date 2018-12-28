@@ -3,11 +3,21 @@ const path = require('path');
 const chalk = require('chalk');
 
 // Find user's home directory (this is where Angular lives)
-const home =
-	process.env.APPDATA ||
-	(process.platform == 'darwin'
-		? process.env.HOME + 'Library/Preferences'
-		: '/var/local');
+let home = '';
+
+switch (process.platform) {
+	case 'darwin':
+		home = process.env.HOME + 'Library/Preferences/npm';
+		break;
+
+	case 'linux':
+		home = '/usr/lib';
+		break;
+
+	case 'win32':
+		home = process.env.APPDATA + '/npm';
+		break;
+}
 
 // Angular schematic location
 const schematicDirectory = '/@angular/cli/node_modules/@schematics/angular';
@@ -16,7 +26,7 @@ const schematicDirectory = '/@angular/cli/node_modules/@schematics/angular';
 const installPath =
 	process.argv.length > 2
 		? process.argv[2]
-		: home + '/npm/node_modules' + schematicDirectory;
+		: home + '/node_modules' + schematicDirectory;
 
 /**
  * Convert the file in-place
