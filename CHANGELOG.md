@@ -1,5 +1,10 @@
 # ng-tabber
 
+## [0.2.7] - Dec-28-2018
+
+### Fixes
+- [Issue #11] Should check operating system for @angular/cli path
+
 ## [0.2.6] - Dec-21-2018
 
 ### Fixes
